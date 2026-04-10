@@ -1,10 +1,16 @@
 import argparse
 import logging
+import os
 import subprocess
 import sys
 from pathlib import Path
 
 import pandas as pd
+
+# Add Deno to PATH if installed locally but not in PATH (needed for yt-dlp anti-bot mitigations)
+deno_bin = Path.home() / ".deno" / "bin"
+if deno_bin.exists() and str(deno_bin) not in os.environ.get("PATH", ""):
+    os.environ["PATH"] += f"{os.pathsep}{deno_bin}"
 
 logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
 
@@ -97,7 +103,9 @@ def download_clip(url: str, output: Path, duration: str) -> None:
     subprocess.run(cmd, check=True)
 
 
-def download_video_clips(csv_file: str = "links.csv", duration: str = "00:04:00") -> None:
+def download_video_clips(
+    csv_file: str = "links.csv", duration: str = "00:04:00"
+) -> None:
     """Iterate over a CSV of video URLs and download a short clip from each.
 
     For every entry in the CSV, the function checks whether the output file

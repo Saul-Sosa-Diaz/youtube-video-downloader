@@ -10,6 +10,7 @@ Before you begin, ensure the following core tools are installed on your base sys
 
 * **Python 3.8+**
 * **FFmpeg** (essential tool used for downloading video slices on-the-fly).
+* **Deno** (essential JavaScript runtime used by `yt-dlp` to solve YouTube's PO Token / anti-bot challenges. Without this, some videos like age-restricted or flagged videos will throw a "video is not available" error).
 
 **Install FFmpeg on Ubuntu/Debian:**
 ```bash
@@ -21,6 +22,12 @@ sudo apt install ffmpeg
 ```bash
 brew install ffmpeg
 ```
+
+**Install Deno (Linux/macOS):**
+```bash
+curl -fsSL https://deno.land/install.sh | sh
+```
+*Note: The script automatically tries to find Deno in `~/.deno/bin` if it's not permanently in your system's PATH.*
 
 ## Setup Python Environment
 
