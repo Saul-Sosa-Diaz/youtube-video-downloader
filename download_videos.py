@@ -97,7 +97,7 @@ def download_clip(url: str, output: Path, duration: str) -> None:
     subprocess.run(cmd, check=True)
 
 
-def download_video_clips(csv_file: str = "enlaces.csv", duration: str = "00:04:00") -> None:
+def download_video_clips(csv_file: str = "links.csv", duration: str = "00:04:00") -> None:
     """Iterate over a CSV of video URLs and download a short clip from each.
 
     For every entry in the CSV, the function checks whether the output file
@@ -106,7 +106,7 @@ def download_video_clips(csv_file: str = "enlaces.csv", duration: str = "00:04:0
 
     Args:
         csv_file: Path to the CSV file containing the video list. Defaults
-            to 'enlaces.csv' in the current working directory. The file must
+            to 'links.csv' in the current working directory. The file must
             have a header row followed by rows with two columns: identifier and url.
         duration: Timespan duration to download (format HH:MM:SS).
     """
@@ -150,8 +150,8 @@ if __name__ == "__main__":
         "csv_file",
         type=str,
         nargs="?",
-        default="enlaces.csv",
-        help="Path to the CSV file containing identifier and url columns (default: enlaces.csv)",
+        default="links.csv",
+        help="Path to the CSV file containing identifier and url columns (default: links.csv)",
     )
     parser.add_argument(
         "--duration",
