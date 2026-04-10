@@ -48,7 +48,7 @@ The script requires a `.csv` (comma-separated values) file containing the list o
 
 **Example `links.csv` file:**
 ```csv
-id,url
+identifier,url
 1,https://www.youtube.com/watch?v=dQw4w9WgXcQ
 2,https://www.youtube.com/watch?v=EjemploDeURL
 MyVideo,https://www.youtube.com/watch?v=AnotherExample

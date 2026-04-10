@@ -25,7 +25,7 @@ def read_urls(csv_path: Path) -> list[tuple[str, str]]:
     Returns:
         A list of (identifier, url) tuples in the order they appear in the file.
     """
-    df = pd.read_csv(csv_path, header=0, names=["id", "url"], dtype=str)
+    df = pd.read_csv(csv_path, header=0, names=["identifier", "url"], dtype=str)
     df = df.dropna(subset=["identifier", "url"])
     df = df.apply(lambda col: col.str.strip())
     return list(df.itertuples(index=False, name=None))
